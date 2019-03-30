@@ -1,0 +1,121 @@
+
+
+.profile-card {
+    background: #FFB300;
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 70px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+    animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, 
+               moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, 
+               moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, 
+               materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+  }
+  
+  
+  @keyframes init {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    100% {
+      width: 56px;
+      height: 56px;
+      margin-top: 0px;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes moveDown {
+    0% {
+      top: 50%;
+    }
+    50% {
+      top: 40%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+  
+  @keyframes moveUp {
+    0% {
+      background: #FFB300;
+      top: 100%;
+    }
+    50% {
+      top: 40%;
+    }
+    100% {
+      top: 50%;
+      background: #E0E0E0;
+    }
+  }
+  
+  @keyframes materia {
+    0% {
+      background: #E0E0E0;
+    }
+    50% {
+      border-radius: 4px;
+    }
+    100% {
+      width: 840px;
+      height: 280px;
+      background: #FFFFFF;
+      border-radius: 4px;
+    }
+    
+  }
+  .container{
+    padding:5%;
+}
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+
+.btn-dark{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#343a40+0,667584+50,4e5256+51,242a30+71,343a40+100 */
+    margin-right: 80px;
+
+     background: #343a40;
+    /* Old browsers */
+     background: -moz-linear-gradient(-45deg, #343a40 0%, #667584 50%, #4e5256 51%, #242a30 71%, #343a40 100%);
+    /* FF3.6-15 */
+     background: -webkit-linear-gradient(-45deg, #343a40 0%,#667584 50%,#4e5256 51%,#242a30 71%,#343a40 100%);
+    /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(135deg, #343a40 0%,#667584 50%,#4e5256 51%,#242a30 71%,#343a40 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343a40', endColorstr='#343a40',GradientType=1 );
+    /* IE6-9 fallback on horizontal gradient */
+     background-size: 400% 400%;
+     -webkit-animation: AnimationName 3s ease infinite;
+     -moz-animation: AnimationName 3s ease infinite;
+     animation: AnimationName 3s ease infinite;
+     -webkit-animation: AnimationName 3s ease infinite;
+     -moz-animation: AnimationName 3s ease infinite;
+     animation: AnimationName 3s ease infinite;
+     border: medium none;
+     position: relative;
+    left: 779px;
+    top: -207px;
+    transition: none 0s ease 0s;
+    cursor: move;
+}
