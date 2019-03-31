@@ -23,14 +23,15 @@ class SignupForm extends Component {
       },
       body: JSON.stringify({ credentials: user })
     })
-      .then(res => res.json())
-      .then(data => {
-        if (data.error) this.setState({ err: data.error });
-        else {
-          setUser(data);
-          this.props.onSignin();
-        }
-      })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status > 299) 
+        this.setState({ err: data.message});
+      else {
+        setUser(data);
+        this.props.onSignin();
+      }
+    })
       .catch(e => console.log(e));
   };
   handleSubmit = e => {
