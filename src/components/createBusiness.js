@@ -17,13 +17,13 @@ class CreateBusiness extends Component {
       }
   
     handleUpdateRequest = user => {
-        let url = `${apiUrl}/user/${getUser().id}/business/4`;
+        let url = `${apiUrl}/user/${getUser().id}`;
   
       console.log(url);
       fetch(url, {
         mode: "cors",
         credentials: "include",
-        method: "PUT",
+        method: "POST",
         headers: {
           "Content-type": "application/json"
         },
@@ -31,9 +31,12 @@ class CreateBusiness extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          if (data.status > 200) this.setState({ err: data.message });
-          else {
+          if (data.status > 200){ 
+            console.log(data.message);
+             this.setState({ err: data.message });
+          } else {
             this.setState({ err: null });
+            console.log(data)
             this.props.changeActivePage('profile')
           }
         })
