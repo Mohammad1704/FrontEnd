@@ -2,14 +2,21 @@ import React from "react";
 
 const authenticatedOptions = (changeActivePage, onSignout) => (
   <React.Fragment>
+    {/* CHANGE PASSWORD */}
     <li
       className="nav-item"
       onClick={() => changeActivePage("change-password")}
     >
       <div className="nav-link">Change Password</div>
     </li>
+    {/* SIGN OUT */}
     <li className="nav-item" onClick={() => onSignout()}>
       <div className="nav-link">Sign Out</div>
+    </li>
+
+    {/* ADD B */}
+    <li className="nav-item" onClick={() => changeActivePage("add-b")}>
+      <div className="nav-link">Add B</div>
     </li>
   </React.Fragment>
 );

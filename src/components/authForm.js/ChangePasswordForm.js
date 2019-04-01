@@ -63,7 +63,6 @@ class ChangePasswordForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-
           <button type="submit" className="btn btn-primary">
             Login
           </button>

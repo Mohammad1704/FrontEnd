@@ -1,38 +1,70 @@
 import React from "react";
+import apiUrl from "../apiConfig";
+import EditProfile from "./EditProfile"
+import { getUser } from "../services/AuthService";
+import EditBusiness from "./EditBusiness";
+class Profile extends React.Component {
+  state = {
+    user: {}
+  };
+  componentDidMount() {
+    // check if we have a token in the local storage
+    let url = `${apiUrl}/user/${getUser().id}`;
 
+    fetch(url, {
+      mode: "cors",
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-type": "application/json"
+      },
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status > 299) 
+        this.setState({ err: data.message});
+      else {
+        console.log(data)
+        this.setState({ user: data.user}); 
 
-const Profile = () => 
-<React.Fragment>
-{/* ----->create bussnises button will send u to form  */}
+      }
+    })
+    .catch(e => console.log(e));
+  }
+  render() {
+    const { user, activePage } = this.state;
+    return (
+      <React.Fragment>
+      {/* ----->create business button will send u to form  */}
 
-<div>Profile
-    <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<aside class="profile-card">
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 img">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded"/>
-    </div>
-    <div class="col-md-6 details">
-      <blockquote>
-        <h5>Fiona Gallagher</h5>
-      </blockquote>
-      <p>
-        fionagallager@shameless.com <br/>
-        www.bootsnipp.com <br/>
-        June 18, 1990
-      </p>
-    </div>
-    <button type="button" class="btn btn-outline-dark btn-sm">Edit</button>
-  </div>
-</div>
-</aside>
-</div>
-</React.Fragment>
+        <div>Profile
+          {/* profile-card */}
+          <aside className="">  
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6 img">
+                  <img src={this.state.user.car_pic} alt={this.state.user.car_pic} className="img-rounded"/>
+                </div>
+                <div className="col-md-6 details">
+                  <blockquote>
+                    <h5>{this.state.user.name}</h5>
 
+                    <small><cite title="email">{this.state.user.email}<i className="icon-map-marker"></i></cite></small>
+                    
+                    <small><cite title="phone_number">{this.state.user.phone_number}<i className="icon-map-marker"></i></cite></small>
+                    <h6>additional info</h6>
+                    <p>{this.state.user.additional_info}</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <EditProfile changeActivePage={this.props.changeActivePage}/>
+        <EditBusiness changeActivePage={this.props.changeActivePage}/>
+      </React.Fragment>
+    )
+  }
+}
 
 export default Profile;

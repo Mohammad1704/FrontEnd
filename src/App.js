@@ -7,6 +7,7 @@ import SignupForm from "./components/authForm.js/SignupForm";
 import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import CreateBusiness from "./components/createBusiness";
 class App extends Component {
   state = {
     user: null,
@@ -59,7 +60,9 @@ class App extends Component {
           ) : (
             ""
           )}
-          {activePage === "profile" ? <Profile /> : ""}
+          {activePage === "profile" ? <Profile changeActivePage={this.changeActivePage} /> : ""}
+          {activePage === "add-b" ? <CreateBusiness changeActivePage={this.changeActivePage} /> : ""}
+
         </div>
       </div>
     );
