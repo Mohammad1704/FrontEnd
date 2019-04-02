@@ -14,9 +14,8 @@ class EditBusiness extends Component {
         },
         err: null
       }
-  
-    handleUpdateRequest = user => {
-        let url = `${apiUrl}/EditBusiness/${this.props.businessId}`;
+    handleUpdateRequest = business => {
+        let url = `${apiUrl}/user/${getUser().id}/businesses/${this.props.id}`;
   
       console.log(url);
       fetch(url, {
@@ -26,7 +25,7 @@ class EditBusiness extends Component {
         headers: {
           "Content-type": "application/json"
         },
-        body: JSON.stringify({user: user})
+        body: JSON.stringify({business: business})
       })
         .then(res => res.json())
         .then(data => {

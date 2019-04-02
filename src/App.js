@@ -64,7 +64,7 @@ class App extends Component {
           )}
           {activePage === "profile" ? <Profile changeActivePage={this.changeActivePage} /> : ""}
           {activePage === "add-b" ? <CreateBusiness changeActivePage={this.changeActivePage} /> : ""}
-          {activePage === "edit-business" ? <EditBusiness id={this.state.businessId} changeActivePage={this.props.changeActivePage} /> : ""}
+          {activePage === "edit-business" ? <EditBusiness id={this.state.businessId} changeActivePage={this.changeActivePage} /> : ""}
         </div>
       </div>
     );
