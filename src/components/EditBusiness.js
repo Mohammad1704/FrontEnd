@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
+import { getUser } from "../services/AuthService";
 
 class EditBusiness extends Component {
     state = {
         formData: {
      
-            shop_name:null,
             location: null,
             opining_time:null,
             closing_time:null,
@@ -16,7 +16,7 @@ class EditBusiness extends Component {
       }
   
     handleUpdateRequest = user => {
-        let url = `${apiUrl}/EditBusiness`;
+        let url = `${apiUrl}/EditBusiness/${this.props.businessId}`;
   
       console.log(url);
       fetch(url, {
@@ -26,13 +26,14 @@ class EditBusiness extends Component {
         headers: {
           "Content-type": "application/json"
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify({user: user})
       })
         .then(res => res.json())
         .then(data => {
           if (data.status > 200) this.setState({ err: data.message });
           else {
             this.setState({ err: null });
+            console.log(data);
             this.props.changeActivePage('profile')
           }
         })

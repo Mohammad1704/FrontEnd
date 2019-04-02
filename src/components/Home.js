@@ -37,16 +37,33 @@ class Profile extends React.Component {
         <head>
       </head>
             <ul>
-              {this.state.businesses.map(business => <li>{business.shop_name}</li>)}
-              {this.state.businesses.map(business => <li>{business.location}</li>)}
-              {this.state.businesses.map(business => <li>{business.opining_time}</li>)}
-              {this.state.businesses.map(business => <li>{business.closing_time}</li>)}
-              {this.state.businesses.map(business => <li>{business.menu}</li>)}
-              {this.state.businesses.map(business => <li>{business.phone_number}</li>)}
-            </ul>
+       
+</ul> 
+ {this.state.businesses.map(business => (
+            <div className="card elevation-2dp">
+           
+                <div>
+              <h3>  {business.shop_name}</h3>
+                <h5>  {business.location}</h5>
+                <h5>  {business.opining_time}</h5>
+                <h6>  {business.closing_time}</h6>
+                <h6>  {business.menu}</h6>
+                <h6>  {business.phone_number}</h6>
+             </div>
+          </div>
+      ))}
       </React.Fragment>
     )
   }
 }
 
 export default Profile;
+
+
+{/* <div className="card elevation-3dp">
+	<div className="title">
+		Testing 3dp
+	</div>
+	<div className="supporting-text">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...
+	</div> */}

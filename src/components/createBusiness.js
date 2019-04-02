@@ -5,7 +5,6 @@ import { getUser } from "../services/AuthService";
 class CreateBusiness extends Component {
     state = {
         formData: {
-     
             shop_name:null,
             location: null,
             opining_time:null,
@@ -16,8 +15,8 @@ class CreateBusiness extends Component {
         err: null
       }
   
-    handleUpdateRequest = user => {
-        let url = `${apiUrl}/user/${getUser().id}`;
+    handleUpdateRequest = business => {
+        let url = `${apiUrl}/user/${getUser().id}/businesses`;
   
       console.log(url);
       fetch(url, {
@@ -27,7 +26,7 @@ class CreateBusiness extends Component {
         headers: {
           "Content-type": "application/json"
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify({business})
       })
         .then(res => res.json())
         .then(data => {
@@ -64,6 +63,12 @@ class CreateBusiness extends Component {
           )}
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
+            <label>shop name </label>
+              <input
+                name="shop_name"
+                className="form-control"
+                onChange={this.handleChange}
+              />
               <label>location </label>
               <input
                 name="location"

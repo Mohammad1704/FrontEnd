@@ -8,10 +8,12 @@ import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import CreateBusiness from "./components/createBusiness";
+import EditBusiness from "./components/EditBusiness";
 class App extends Component {
   state = {
     user: null,
-    activePage: "home"
+    activePage: "home",
+    businessId: null
   };
   componentDidMount() {
     // check if we have a token in the local storage
@@ -21,8 +23,8 @@ class App extends Component {
     }
   }
 
-  changeActivePage = activePage => {
-    this.setState({ activePage });
+  changeActivePage = (activePage, businessId) => {
+    this.setState({ activePage: activePage, businessId: businessId });
   };
   onSignin = () => {
     this.setState({ user: getUser() });
@@ -62,7 +64,7 @@ class App extends Component {
           )}
           {activePage === "profile" ? <Profile changeActivePage={this.changeActivePage} /> : ""}
           {activePage === "add-b" ? <CreateBusiness changeActivePage={this.changeActivePage} /> : ""}
-
+          {activePage === "edit-business" ? <EditBusiness id={this.state.businessId} changeActivePage={this.props.changeActivePage} /> : ""}
         </div>
       </div>
     );
