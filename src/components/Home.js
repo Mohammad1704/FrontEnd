@@ -5,10 +5,15 @@ class Profile extends React.Component {
   state = {
     businesses: []
   };
+
+
+  
   componentDidMount() {
     // check if we have a token in the local storage
     let url = `${apiUrl}/businesses`;
 
+
+    
     fetch(url, {
       mode: "cors",
       credentials: "include",
@@ -29,6 +34,8 @@ class Profile extends React.Component {
     })
     .catch(e => console.log(e));
   }
+
+  
   render() {
     const { user, activePage } = this.state;
     return (
@@ -40,13 +47,13 @@ class Profile extends React.Component {
            
                 <div>
               <h3>  {business.shop_name}</h3>
-                <h5>  {business.location}</h5>
+                <a href={business.location} >location</a>
                 <h5>  {business.opining_time}</h5>
                 <h6>  {business.closing_time}</h6>
                 {/* {business.menu} */}
                 <h6>  {business.phone_number}</h6>
              </div>
-             <img src={business.menu} className="mx-auto rounded mx-auto d-block"/>
+              <a href={business.menu}><img src={business.menu} className="mx-5 rounded mx-auto d-block"/></a>
           </div>
       ))}
       </React.Fragment>
