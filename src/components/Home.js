@@ -75,7 +75,7 @@ class Profile extends React.Component {
                 <h6>  {business.phone_number}</h6>
              </div>
               <a href={business.menu}>
-              <div style={bg}> </div>
+              <div style={bg}> <i className="glyphicon glyphicon-fullscreen"></i> </div>
               </a>
           </div>
  )})}

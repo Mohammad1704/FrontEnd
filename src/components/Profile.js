@@ -124,7 +124,7 @@ class Profile extends React.Component {
                 <h6>  {business.closing_time}</h6>
                 <h6>  {business.phone_number}</h6>
                 <image src= {business.menu}/> 
-                <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}><i className="glyphicon glyphicon-pencil"></i></button>
+                <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}><i className="glyphicon glyphicon-edit"></i></button>
                 <button className="btn btn-danger"  onClick={()=>this.handleDeleteBusiness(business.id)}><i className="glyphicon glyphicon-trash"></i> </button>  
              </div>
           </div>

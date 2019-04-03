@@ -5,25 +5,29 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
     <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 
-      <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Righteous" rel="stylesheet"/></head>
+      <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Righteous" rel="stylesheet"/>
+      </head>
     {/* CHANGE PASSWORD */}
+   <div  className=" navbar-right" ></div>
     <li
       className="nav-item"
       onClick={() => changeActivePage("change-password")}
     >
-      <div className="nav-link">Change Password</div>
+      <div className="nav-link btn btn-warning px-5 mx-5">Change Password</div>
     </li>
     {/* SIGN OUT */}
    
 
     {/* ADD B */}
-    <li className="nav-item" onClick={() => changeActivePage("add-b")}>
-      <div className="nav-link">Add Shop</div>
+    <li className="nav-item navbar-right" onClick={() => changeActivePage("add-b")}>
+      <div className="nav-link px-5 mx-5 btn btn-info"> 
+     Add Shop
+      </div>
     </li>
     <div className="navbar-right" >
-     <li className="nav-item navbar-right" onClick={() => onSignout()}>
+     <li className="nav-item navbar-right " onClick={() => onSignout()}>
       {/* <div className="nav-link">Sign Out</div> */}
-      <button className="btn btn-danger navbar-btn ">Sign Out</button>
+      <button className="btn btn-danger navbar-btn px-5 mx-5">Sign Out</button>
     </li>
     </div>
   </React.Fragment>
@@ -32,10 +36,10 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
 const unauthenticatedOptions = changeActivePage => (
   <React.Fragment>
     <ul className="nav navbar-nav navbar-right">
-    <li className="glyphicon glyphicon-log-in" onClick={() => changeActivePage("sign-in")}>
+    <li className="glyphicon glyphicon-log-in px-5" onClick={() => changeActivePage("sign-in")}>
       <div className="nav-link">Login</div>
     </li>
-    <li className="glyphicon glyphicon-user" onClick={() => changeActivePage("sign-up")}>
+    <li className="glyphicon glyphicon-user px-5" onClick={() => changeActivePage("sign-up")}>
       <div className="nav-link">Sign Up</div>
     </li>
 </ul>
@@ -47,19 +51,19 @@ const unauthenticatedOptions = changeActivePage => (
 
 const alwaysOptions = changeActivePage => (
   <React.Fragment>
-    <div className="input-group">
-    <input type="text" className="form-control" placeholder="Search"/>
-    <div className="input-group-btn">
-      <button className="btn btn-default" type="submit">
-        <i className="glyphicon glyphicon-search"></i>
+    <div className="input-group ">
+    <input type="text" className="form-control " placeholder="Search"/>
+    <div className="input-group-btn ">
+      <button className="btn btn-default " type="submit">
+        <i className="glyphicon glyphicon-search   "></i>
       </button>
     </div>
   </div>
     <li className="nav-item" onClick={() => changeActivePage("home")}>
-      <div className="nav-link "><i className="glyphicon glyphicon-home"></i> </div>
+      <div className="nav-link "><i className="glyphicon glyphicon-home mx-3 my-1"> </i> </div>
     </li>
     <li className="nav-item" onClick={() => changeActivePage("profile")}>
-      <div className="nav-link "><i className="glyphicon glyphicon-user"></i> </div>
+      <div className="nav-link "><i className="glyphicon glyphicon-user  mr-5 my-1 "></i> </div>
     </li>
     
     
@@ -68,7 +72,7 @@ const alwaysOptions = changeActivePage => (
 
 const Nav = ({ user, changeActivePage, onSignout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className=" navbar-brand brand header-left">On Your Way!</div>
+    <div className=" navbar-brand brand header-left" ><img src="../components/facebook_profile_image.png" alt="On Your Way!" ></img></div>
     <button
       className="navbar-toggler"
       type="button"
