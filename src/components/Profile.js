@@ -8,6 +8,7 @@ class Profile extends React.Component {
       business: []
     }
   };
+
   componentDidMount() {
     // check if we have a token in the local storage
     let url = `${apiUrl}/user/${getUser().id}`;
@@ -32,6 +33,35 @@ class Profile extends React.Component {
     })
     .catch(e => console.log(e));
   }
+
+  handleDeleteBusiness = businessId => {
+    let url = `${apiUrl}/business/${businessId}`;  //`${apiUrl}/user/${getUser().id}/businesses/${this.props.id}`;
+
+    fetch(url, {
+      mode: "cors",
+      credentials: "include",
+      method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status > 299) 
+        this.setState({ err: data.message});
+      else {
+        console.log(data);
+        (index, event) => {
+    const user = {...this.state.user}
+    user.business.splice(index, 1)    
+    this.setState({ user : user })
+  }
+  
+      }
+    })
+      .catch(e => console.log(e));
+  };
+  // handleClickIndex(index, event){
+  //   eval(this[event.target.name]).bind(this)(index, event)
+  // }
+  
   render() {
     const { user, activePage } = this.state;
     return (
@@ -87,7 +117,7 @@ class Profile extends React.Component {
                 <h6>  {business.menu}</h6>
                 <h6>  {business.phone_number}</h6>
                 <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}>Edit</button>
-                          <button className="btn btn-danger" >Delete</button>  
+                <button className="btn btn-danger"  onClick={()=>this.handleDeleteBusiness(business.id)}>Delete</button>  
              </div>
           </div>
       ))}
