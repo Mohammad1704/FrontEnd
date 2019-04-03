@@ -80,9 +80,9 @@ class Profile extends React.Component {
           <aside className="">  
             <div className="container">
               <div className="row">
-                <div className="col-md-6 img">
+                <div className="col-md-6">
 
-                  <img src={this.state.user.car_pic} alt={this.state.user.car_pic} className="img-rounded"/>
+                  <img src={this.state.user.car_pic} alt={this.state.user.car_pic} className="profile-pic img-thumbnail"/>
                 </div>
                 <div className="col-md-6 details">
                   <blockquote>

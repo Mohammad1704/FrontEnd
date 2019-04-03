@@ -2,6 +2,7 @@ import React from "react";
 
 const authenticatedOptions = (changeActivePage, onSignout) => (
   <React.Fragment>
+    <head><link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Righteous" rel="stylesheet"/></head>
     {/* CHANGE PASSWORD */}
     <li
       className="nav-item"
@@ -16,7 +17,7 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
 
     {/* ADD B */}
     <li className="nav-item" onClick={() => changeActivePage("add-b")}>
-      <div className="nav-link">Add B</div>
+      <div className="nav-link">Add Shop</div>
     </li>
   </React.Fragment>
 );
@@ -45,7 +46,7 @@ const alwaysOptions = changeActivePage => (
 
 const Nav = ({ user, changeActivePage, onSignout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className="navbar-brand">Navbar</div>
+    <div className="navbar-brand brand">On Your Way!</div>
     <button
       className="navbar-toggler"
       type="button"

@@ -61,9 +61,9 @@ class Profile extends React.Component {
            
                 <div>
               <h3>  {business.shop_name}</h3>
-                <a href={business.location} >location</a>
-                loc
-                <div class="mapouter"><div class="gmap_canvas">
+                {/* <a href={business.location} >location</a> */}
+                
+                <div className="mapouter"><div className="gmap_canvas">
                 <iframe width="323" height="200" id="gmap_canvas" src={gmapurl} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>Werbung:
                  <a href="https://www.pureblack.de">Pure Black GmbH</a></div>
 
