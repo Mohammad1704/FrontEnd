@@ -223,4 +223,6 @@ width: "323px"
   font-size: 20px;
 }
 /* NAV BAR */
-
+.navbar{
+  box-shadow: 1px 1px 5px black;
+}
