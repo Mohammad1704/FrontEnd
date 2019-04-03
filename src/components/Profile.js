@@ -44,15 +44,18 @@ class Profile extends React.Component {
     })
     .then(res => res.json())
     .then(data => {
+      // window.location.reload()
+      this.props.changeActivePage("Home")
+      this.props.changeActivePage("profile")
       if (data.status > 299) 
         this.setState({ err: data.message});
       else {
         console.log(data);
-        (index, event) => {
-    const user = {...this.state.user}
-    user.business.splice(index, 1)    
-    this.setState({ user : user })
-  }
+  //       (index, event) => {
+  //   const user = {...this.state.user}
+  //   user.business.splice(index, 1)    
+  //   this.setState({ user : user })
+  // }
   
       }
     })
@@ -63,17 +66,22 @@ class Profile extends React.Component {
   // }
   
   render() {
+    // console.log(this.state.user.car_pic, "sss")
+    // var imageName = require(`{this.state.user.car_pic}`)
+
     const { user, activePage } = this.state;
     return (
+      
       <React.Fragment>
       {/* ----->create business button will send u to form  */}
-
+      
         <div>Profile
           {/* profile-card */}
           <aside className="">  
             <div className="container">
               <div className="row">
                 <div className="col-md-6 img">
+
                   <img src={this.state.user.car_pic} alt={this.state.user.car_pic} className="img-rounded"/>
                 </div>
                 <div className="col-md-6 details">
@@ -116,7 +124,7 @@ class Profile extends React.Component {
                 <h6>  {business.closing_time}</h6>
                 <h6>  {business.menu}</h6>
                 <h6>  {business.phone_number}</h6>
-                <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}>Edit</button>
+                <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}></button>
                 <button className="btn btn-danger"  onClick={()=>this.handleDeleteBusiness(business.id)}>Delete</button>  
              </div>
           </div>

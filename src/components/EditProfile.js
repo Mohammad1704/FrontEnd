@@ -15,6 +15,7 @@ class EditProfile extends Component {
   
     handleUpdateRequest = user => {
         let url = `${apiUrl}/EditProfile/${getUser().id}`;
+        console.log(user)
       fetch(url, {
         mode: "cors",
         credentials: "include",
@@ -88,7 +89,7 @@ class EditProfile extends Component {
               />
              <label>Car Pic (url)</label>
               <input
-                name="Car_Pic"
+                name="car_pic"
                 className="form-control"
                 type="text"
                 onChange={this.handleChange}
