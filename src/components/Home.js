@@ -34,22 +34,19 @@ class Profile extends React.Component {
     return (
       <React.Fragment>
       {/* ----->create bussnises button will send u to form  */}
-        <head>
-      </head>
-            <ul>
-       
-</ul> 
+        
  {this.state.businesses.map(business => (
-            <div className="card elevation-2dp">
+            <div className=" card elevation-2dp">
            
                 <div>
               <h3>  {business.shop_name}</h3>
                 <h5>  {business.location}</h5>
                 <h5>  {business.opining_time}</h5>
                 <h6>  {business.closing_time}</h6>
-                <h6>  {business.menu}</h6>
+                {/* {business.menu} */}
                 <h6>  {business.phone_number}</h6>
              </div>
+             <img src={business.menu} className="mx-auto rounded mx-auto d-block"/>
           </div>
       ))}
       </React.Fragment>

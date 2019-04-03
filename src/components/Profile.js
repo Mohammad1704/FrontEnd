@@ -122,9 +122,9 @@ class Profile extends React.Component {
                 <h5>  {business.location}</h5>
                 <h5>  {business.opining_time}</h5>
                 <h6>  {business.closing_time}</h6>
-                <h6>  {business.menu}</h6>
                 <h6>  {business.phone_number}</h6>
-                <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}></button>
+                <image src= {business.menu}/> 
+                <button className="btn btn-secondary" onClick={()=>this.props.changeActivePage('edit-business', business.id)}>Edit</button>
                 <button className="btn btn-danger"  onClick={()=>this.handleDeleteBusiness(business.id)}>Delete</button>  
              </div>
           </div>
