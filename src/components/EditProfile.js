@@ -97,7 +97,7 @@ class EditProfile extends Component {
             </div>
   
             <button type="submit" className="btn btn-primary">
-              Update Profile
+              Update Profile <i className="glyphicon glyphicon-refresh"></i>
             </button>
           </form>
         </div>

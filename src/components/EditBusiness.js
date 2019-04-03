@@ -60,7 +60,7 @@ class EditBusiness extends Component {
           )}
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label>location </label>
+              <label>location <i className="glyphicon glyphicon-map-marker"></i></label>
               <input
                 name="location"
                 className="form-control"
@@ -100,7 +100,7 @@ class EditBusiness extends Component {
             </div>
   
             <button type="submit" className="btn btn-primary" onClick={this.handleChange}>
-              Update Business
+              Update Business <i className="glyphicon glyphicon-refresh"></i>
             </button>
           </form>
         </div>
