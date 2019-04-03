@@ -42,20 +42,43 @@ class Profile extends React.Component {
       <React.Fragment>
       {/* ----->create bussnises button will send u to form  */}
         
- {this.state.businesses.map(business => (
-            <div className=" card elevation-2dp">
+ {this.state.businesses.map(business => { 
+
+   let loc = business.location.split(",")
+   const location = `${loc[0]}%2C%20${loc[1]}`; 
+   const gmapurl = `https://maps.google.com/maps?q=${location}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
+   const bg = {
+    backgroundImage: `url(${business.menu})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    height: "200px",
+    width: "323px"
+   }
+   return (
+            <div className=" card elevation-2dp thumbnail">
+           
            
                 <div>
               <h3>  {business.shop_name}</h3>
                 <a href={business.location} >location</a>
+                loc
+                <div class="mapouter"><div class="gmap_canvas">
+                <iframe width="323" height="200" id="gmap_canvas" src={gmapurl} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>Werbung:
+                 <a href="https://www.pureblack.de">Pure Black GmbH</a></div>
+
+                 </div>
+
                 <h5>  {business.opining_time}</h5>
                 <h6>  {business.closing_time}</h6>
                 {/* {business.menu} */}
                 <h6>  {business.phone_number}</h6>
              </div>
-              <a href={business.menu}><img src={business.menu} className="mx-5 rounded mx-auto d-block"/></a>
+              <a href={business.menu}>
+              <div style={bg}> </div>
+              </a>
           </div>
-      ))}
+ )})}
       </React.Fragment>
     )
   }
