@@ -226,3 +226,6 @@ width: "323px"
 .navbar{
   box-shadow: 1px 1px 5px black;
 }
+body {
+  background: greenyellow;
+}

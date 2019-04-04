@@ -1,5 +1,6 @@
 import React from "react";
-
+import logo from "../components/instagram_profile_image.png";
+import backgroundImage from "../components/logo2.png";
 const authenticatedOptions = (changeActivePage, onSignout) => (
   <React.Fragment>
     <head>
@@ -32,9 +33,15 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
     </div>
   </React.Fragment>
 );
-
+let bg = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
+  }
 const unauthenticatedOptions = changeActivePage => (
+  
   <React.Fragment>
+    <div > 
     <ul className="nav navbar-nav navbar-right">
     <li className="glyphicon glyphicon-log-in px-5" onClick={() => changeActivePage("sign-in")}>
       <div className="nav-link">Login</div>
@@ -43,7 +50,7 @@ const unauthenticatedOptions = changeActivePage => (
       <div className="nav-link">Sign Up</div>
     </li>
 </ul>
-    
+    </div>
 
 
   </React.Fragment>
@@ -51,7 +58,8 @@ const unauthenticatedOptions = changeActivePage => (
 
 const alwaysOptions = changeActivePage => (
   <React.Fragment>
-    <div className="input-group ">
+
+    <div className="input-group " >
     <input type="text" className="form-control " placeholder="Search"/>
     <div className="input-group-btn ">
       <button className="btn btn-default " type="submit">
@@ -72,7 +80,7 @@ const alwaysOptions = changeActivePage => (
 
 const Nav = ({ user, changeActivePage, onSignout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className=" navbar-brand brand header-left" ><img src="../components/facebook_profile_image.png" alt="On Your Way!" ></img></div>
+    <div className=" navbar-brand brand header-left p-5 m-5" style={bg} >On Your Way!!</div>
     <button
       className="navbar-toggler"
       type="button"
