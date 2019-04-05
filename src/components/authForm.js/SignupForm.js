@@ -15,15 +15,12 @@ class SignupForm extends Component {
     let url = `${apiUrl}/sign-up`;
 
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
       method: "POST",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify({ credentials: user })
     })
-    .then(res => res.json())
     .then(data => {
       if (data.status > 299) 
         this.setState({ err: data.message});
@@ -88,4 +85,4 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+export default SignupForm; 

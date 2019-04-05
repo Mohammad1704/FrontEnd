@@ -79,7 +79,9 @@
   }
   .container{
     padding:5%;
+    overflow: hidden;
 }
+
 .container .img{
     text-align:center;
 }
@@ -226,6 +228,12 @@ width: "323px"
 .navbar{
   box-shadow: 1px 1px 5px black;
 }
+
+.logo{
+background-image: url("/static/media/logo2.a7fab7b7.png");
+background-repeat: no-repeat;
+background-size: cover;margin: auto;width: 300px;
+}
 body {
-  background: greenyellow;
+  background: red;
 }

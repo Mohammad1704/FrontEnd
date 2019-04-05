@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../components/instagram_profile_image.png";
-import backgroundImage from "../components/logo2.png";
+import backgroundImage from "../components/cover_photo_2.png";
 const authenticatedOptions = (changeActivePage, onSignout) => (
   <React.Fragment>
     <head>
@@ -36,7 +36,8 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
 let bg = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    margin: "auto",
   }
 const unauthenticatedOptions = changeActivePage => (
   
@@ -59,7 +60,7 @@ const unauthenticatedOptions = changeActivePage => (
 const alwaysOptions = changeActivePage => (
   <React.Fragment>
 
-    <div className="input-group " >
+    <div className="input-group" >
     <input type="text" className="form-control " placeholder="Search"/>
     <div className="input-group-btn ">
       <button className="btn btn-default " type="submit">
@@ -80,7 +81,7 @@ const alwaysOptions = changeActivePage => (
 
 const Nav = ({ user, changeActivePage, onSignout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className=" navbar-brand brand header-left p-5 m-5" style={bg} >On Your Way!!</div>
+    <div className=" navbar-brand brand header-left">On Your Way!!</div>
     <button
       className="navbar-toggler"
       type="button"
