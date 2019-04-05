@@ -9,6 +9,8 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 import CreateBusiness from "./components/createBusiness";
 import EditBusiness from "./components/EditBusiness";
+import backgroundImage from './components/cover_photo_2.png';
+
 class App extends Component {
   state = {
     user: null,
@@ -36,9 +38,20 @@ class App extends Component {
     Signout();
   };
   render() {
+      let background = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    
+  }
+  
     const { user, activePage } = this.state;
     return (
-      <div>
+      <div style={{
+    backgroundColor: "#F5F5F5",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  }}>
         <Nav
           user={user}
           changeActivePage={this.changeActivePage}

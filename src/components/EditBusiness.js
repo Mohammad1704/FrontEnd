@@ -19,8 +19,7 @@ class EditBusiness extends Component {
   
       console.log(url);
       fetch(url, {
-        mode: "cors",
-        credentials: "include",
+        
         method: "PUT",
         headers: {
           "Content-type": "application/json"

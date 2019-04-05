@@ -1,5 +1,6 @@
 import React from "react";
 import apiUrl from "../apiConfig";
+import backgroundImage from "./cover_photo_2.png";
 
 class Profile extends React.Component {
   state = {
@@ -55,8 +56,9 @@ class Profile extends React.Component {
     height: "200px",
     width: "323px"
    }
+
    return (
-            <div className=" card elevation-2dp thumbnail">
+            <div className=" card elevation-2dp thumbnail" >
            
            
                 <div>
